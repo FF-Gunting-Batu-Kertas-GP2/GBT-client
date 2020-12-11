@@ -5,16 +5,38 @@
       <div class="container mt-10">
         <div id="card" class="row justify-content-center align-item-center">
           <div class="col-5 mt-5 rounded" style="width: 300px;">
-            <img style="width: 200px;" class="m-5" src="../assets/scissors.png"/>
-            <button class="btn btn-primary" @click="yourPick($event)" name="Gunting">Gunting</button>
+            <img
+              style="width: 200px;"
+              class="m-5"
+              src="../assets/scissors.png"
+            />
+            <button
+              class="btn btn-primary"
+              @click="yourPick($event)"
+              name="Gunting"
+            >
+              Gunting
+            </button>
           </div>
           <div class="col-5 mt-5 rounded" style="width: 300px;">
-            <img style="width: 200px;" class="m-5" src="../assets/rock.png"/>
-            <button class="btn btn-warning" @click="yourPick($event)" name="Batu">Batu</button>
+            <img style="width: 200px;" class="m-5" src="../assets/rock.png" />
+            <button
+              class="btn btn-warning"
+              @click="yourPick($event)"
+              name="Batu"
+            >
+              Batu
+            </button>
           </div>
           <div class="col-5 mt-5 rounded" style="width: 300px;">
-            <img style="width: 200px;" class="m-5" src="../assets/paper.png"/>
-            <button class="btn btn-danger" @click="yourPick($event)" name="Kertas">Kertas</button>
+            <img style="width: 200px;" class="m-5" src="../assets/paper.png" />
+            <button
+              class="btn btn-danger"
+              @click="yourPick($event)"
+              name="Kertas"
+            >
+              Kertas
+            </button>
           </div>
         </div>
       </div>
@@ -38,6 +60,7 @@ export default {
       readyStatus: false,
       health: 2,
       lose: false,
+      winner: false,
     };
   },
   methods: {
@@ -75,9 +98,17 @@ export default {
         }
       }
     },
+    S_sendWinner(payload) {
+      console.log(payload);
+      for (let i = 0; i < payload.length; i++) {
+        if (payload[i].id == this.id && payload[i].name == this.name) {
+          this.winner = true;
+          console.log(this.winner);
+        }
+      }
+    },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>
