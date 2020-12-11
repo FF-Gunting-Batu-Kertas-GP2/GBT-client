@@ -8,9 +8,15 @@ export default new Vuex.Store({
   state: {
     playerName: []
   },
-  mutations: {},
+  mutations: {
+    loadPlayer (state, value) {
+      state.playerName = value
+    }
+  },
   actions: {
     sendName(context, payload) {
+      console.log(`you has joined the game`);
+      context.commit('loadPlayer', payload.name)
       this._vm.$socket.emit("C_sendName", payload);
       router.push("/game");
     },

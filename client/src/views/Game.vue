@@ -18,6 +18,10 @@
           </div>
         </div>
       </div>
+      <div class="position-absolute top-0 start-0">
+        JOINED PLAYER:
+        <p v-for="player in playerName" :key="player.id">{{player.name}}</p>
+      </div>
     </div>
 
     <p>Pilihan Kamu Saat ini : {{ pick }}</p>
@@ -29,6 +33,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data() {
     return {
@@ -63,7 +69,8 @@ export default {
       console.log("client connecting");
     },
     S_sendName(payload) {
-      console.log(`${payload.name} has joined the game`);
+      this.$store.commit('loadPlayer', payload.player)
+      console.log(`${payload.payload.name} has joined the game`);
       this.id = payload.id;
       this.name = payload.name;
     },
@@ -76,6 +83,11 @@ export default {
       }
     },
   },
+  computed: {
+    ...mapState ({
+      playerName: 'playerName'
+    })
+  }
 };
 </script>
 
