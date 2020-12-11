@@ -5,7 +5,9 @@ import router from "../router";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
+  state: {
+    playerName: []
+  },
   mutations: {},
   actions: {
     sendName(context, payload) {
