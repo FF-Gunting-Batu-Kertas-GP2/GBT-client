@@ -40,10 +40,6 @@
           </div>
         </div>
       </div>
-      <div class="position-absolute top-0 start-0 mt-3 mx-3">
-        JOINED PLAYER:
-        <p v-for="player in playerName" :key="player.id">{{player.name}}</p>
-      </div>
     </div>
 
     <p>Pilihan Kamu Saat ini : {{ pick }}</p>
@@ -97,8 +93,7 @@ export default {
       console.log("client connecting");
     },
     S_sendName(payload) {
-      this.$store.commit('loadPlayer', payload.player)
-      console.log(`${payload.payload.name} has joined the game`);
+      console.log(`${payload.name} has joined the game`);
       this.id = payload.id;
       this.name = payload.name;
     },
