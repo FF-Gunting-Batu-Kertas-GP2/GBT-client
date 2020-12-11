@@ -1,10 +1,24 @@
 <template>
   <div>
     <h3>Game Page</h3>
-
-    <button @click="yourPick($event)" name="Gunting">Gunting</button>
-    <button @click="yourPick($event)" name="Batu">Batu</button>
-    <button @click="yourPick($event)" name="Kertas">Kertas</button>
+    <div class="container">
+      <div class="container mt-10">
+        <div id="card" class="row justify-content-center align-item-center">
+          <div class="col-5 mt-5 rounded" style="width: 300px;">
+            <img style="width: 200px;" class="m-5" src="../assets/scissors.png"/>
+            <button class="btn btn-primary" @click="yourPick($event)" name="Gunting">Gunting</button>
+          </div>
+          <div class="col-5 mt-5 rounded" style="width: 300px;">
+            <img style="width: 200px;" class="m-5" src="../assets/rock.png"/>
+            <button class="btn btn-warning" @click="yourPick($event)" name="Batu">Batu</button>
+          </div>
+          <div class="col-5 mt-5 rounded" style="width: 300px;">
+            <img style="width: 200px;" class="m-5" src="../assets/paper.png"/>
+            <button class="btn btn-danger" @click="yourPick($event)" name="Kertas">Kertas</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <p>Pilihan Kamu Saat ini : {{ pick }}</p>
 
@@ -65,4 +79,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>
