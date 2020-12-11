@@ -1,10 +1,21 @@
 <template>
-  <div>
-    <h3>Game Page</h3>
+  <div class="container">
+    <h4>Hello {{name}},</h4>
+    <h3>Rock, Scissor or Paper?</h3>
 
-    <button @click="yourPick($event)" name="Gunting">Gunting</button>
-    <button @click="yourPick($event)" name="Batu">Batu</button>
-    <button @click="yourPick($event)" name="Kertas">Kertas</button>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img @click="yourPick($event)" name="Batu" class="m-1" src="../assets/rock1.png" />
+        </div>
+        <div class="col">
+          <img @click="yourPick($event)" name="Gunting" class="m-1" src="../assets/scissor1.png" />
+        </div>
+        <div class="col">
+          <img @click="yourPick($event)" name="Kertas" class="m-1" src="../assets/paper1.png" />
+        </div>
+      </div>
+    </div>
 
     <p>Pilihan Kamu Saat ini : {{ pick }}</p>
 
