@@ -61,6 +61,7 @@ export default {
       readyStatus: false,
       health: 2,
       lose: false,
+      winner: false,
     };
   },
   methods: {
@@ -95,6 +96,18 @@ export default {
       for (let i = 0; i < payload.length; i++) {
         if (payload[i].id == this.id && payload[i].name == this.name) {
           this.health = payload[i].health;
+        }
+      }
+    },
+    S_sendWinner(payload) {
+      console.log(payload);
+      for (let i = 0; i < payload.length; i++) {
+        if (payload[i].id == this.id && payload[i].name == this.name) {
+          this.winner = true;
+          console.log(this.winner, "winner");
+          this.$router.push("/winner");
+        } else {
+          this.$router.push("/loser");
         }
       }
     },
