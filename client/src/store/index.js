@@ -15,6 +15,8 @@ export default new Vuex.Store({
   },
   actions: {
     sendName(context, payload) {
+      console.log(`you has joined the game`);
+      context.commit('loadPlayer', payload.name)
       this._vm.$socket.emit("C_sendName", payload);
       router.push("/game");
     },
