@@ -103,7 +103,10 @@ export default {
       for (let i = 0; i < payload.length; i++) {
         if (payload[i].id == this.id && payload[i].name == this.name) {
           this.winner = true;
-          console.log(this.winner);
+          console.log(this.winner, 'winner');
+          this.$router.push('/winner')
+        } else {
+          this.$router.push('/loser')
         }
       }
     },
