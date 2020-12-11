@@ -1,27 +1,54 @@
 <template>
   <div class="container">
-    <h4>Hello {{name}},</h4>
+    <h4>Hello {{ name }},</h4>
+    <h4>Your Health Points</h4>
+    <div class="progress">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        v-bind:aria-valuenow="40"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        v-bind:style="{ width : `${(health/2) * 100}%` }"
+      ></div>
+
+      <div v-bind:class="{ active: isActive }"></div>
+    </div>
+    <br><br>
     <h3>Rock, Scissor or Paper?</h3>
 
     <div class="container">
       <div class="row">
         <div class="col">
-          <img @click="yourPick($event)" name="Batu" class="m-1" src="../assets/rock1.png" />
+          <img
+            @click="yourPick($event)"
+            name="Batu"
+            class="m-1"
+            src="../assets/rock1.png"
+          />
         </div>
         <div class="col">
-          <img @click="yourPick($event)" name="Gunting" class="m-1" src="../assets/scissor1.png" />
+          <img
+            @click="yourPick($event)"
+            name="Gunting"
+            class="m-1"
+            src="../assets/scissor1.png"
+          />
         </div>
         <div class="col">
-          <img @click="yourPick($event)" name="Kertas" class="m-1" src="../assets/paper1.png" />
+          <img
+            @click="yourPick($event)"
+            name="Kertas"
+            class="m-1"
+            src="../assets/paper1.png"
+          />
         </div>
       </div>
+
+      <p>You choose {{ pick }}!</p>
+
+      <button @click="getReady">Ready</button>
     </div>
-
-    <p>Pilihan Kamu Saat ini : {{ pick }}</p>
-
-    <p>Health : {{ health }}</p>
-
-    <button @click="getReady">Ready</button>
   </div>
 </template>
 
@@ -33,7 +60,7 @@ export default {
       name: "",
       pick: "",
       readyStatus: false,
-      health: 2,
+      health: 1,
       lose: false,
     };
   },
