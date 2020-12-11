@@ -8,7 +8,11 @@ export default new Vuex.Store({
   state: {
     playerName: []
   },
-  mutations: {},
+  mutations: {
+    loadPlayer (state, value) {
+      state.playerName = value
+    }
+  },
   actions: {
     sendName(context, payload) {
       this._vm.$socket.emit("C_sendName", payload);
