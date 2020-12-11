@@ -40,7 +40,7 @@
           </div>
         </div>
       </div>
-      <div class="position-absolute top-0 start-0">
+      <div class="position-absolute top-0 start-0 mt-3 mx-3">
         JOINED PLAYER:
         <p v-for="player in playerName" :key="player.id">{{player.name}}</p>
       </div>
