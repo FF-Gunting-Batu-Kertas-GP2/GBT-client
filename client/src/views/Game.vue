@@ -4,15 +4,14 @@
     <h4>Your Health Points</h4>
     <div class="progress">
       <div
-        class="progress-bar"
+        class="progress-bar bg-success"
         role="progressbar"
         v-bind:aria-valuenow="40"
         aria-valuemin="0"
         aria-valuemax="100"
         v-bind:style="{ width : `${(health/2) * 100}%` }"
       ></div>
-
-      <div v-bind:class="{ active: isActive }"></div>
+      
     </div>
     <br><br>
     <h3>Rock, Scissor or Paper?</h3>
@@ -43,7 +42,7 @@
             src="../assets/paper1.png"
           />
         </div>
-      </div>
+      </div><br><br>
 
       <p>You choose {{ pick }}!</p>
 
@@ -60,7 +59,7 @@ export default {
       name: "",
       pick: "",
       readyStatus: false,
-      health: 1,
+      health: 2,
       lose: false,
     };
   },
